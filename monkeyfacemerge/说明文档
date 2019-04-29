@@ -1,0 +1,15 @@
+data_image_processing_rotation文件，用于对图片进行预处理，其中包括的方法有1.根据特征点计算图像与垂线的夹角；2.根据夹角旋转图片；3.根据夹角旋转特征点；4.根据特征点求映射特征点和世纪特征点的平均分布；5.生成灰度图片；6.根据特征点中心位置使用最小矩形截取并保存；7.从txt文档读取特征点。
+
+ExtractLandmarks2Text文件，用于标记特征点并以txt文本格式保存。
+
+DelaunayTriangleCoodinate2Text文件，计算所有特征点之间连接的最小三角形。
+
+FaceLandmarksSave2Text文件，自动获取人脸68个特征点，shape_predictor_68_face_landmarks.dat是用于人脸特征点提取的模型。
+
+test_feature_points文件，用于特征点在图片上的位置。
+
+FaceMerge文件，用于图片融合。
+
+humantri.txt文件，是基于人脸特征点生成的Delaunay三角坐标。monkeytri.txt文件是基于猴子脸特征点生成的Delaunay三角坐标。图片融合使用的是humantri.txt，因为人脸的宽度要宽于猴子脸。
+
+文档的使用顺序:1.ExtractLandmarks2Text文件,对图片数据标记特征点；2.使用DelaunayTriangleCoodinate2Text文件获取Delaunay三角坐，也可以直接使用文档中自带的humantri.txt文件；3.使用data_image_processing_rotation文件对图片进行预处理，可以对图片进行旋转正置，并根据旋转夹角旋转特征点坐标；4.通过FaceMerge对处理后的图片数据进行融合生成融合后的图片。
